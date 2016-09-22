@@ -8,7 +8,6 @@
 
 #import "SHPBaseViewController.h"
 
-#import "AGUserViewController.h"
 @interface SHPBaseViewController ()<UINavigationControllerDelegate,UIGestureRecognizerDelegate>
 
 @end
@@ -102,11 +101,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+# warning 当开始新项目的时候，这里要设置
 // 导航栏，这里全局设置该基础类控制器管子类的navigationBar的显示与隐藏动画的问题
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-    if ([viewController class] == [AGUserViewController class]) {
+    if ([viewController class] == [UIViewController class]) {
         [navigationController setNavigationBarHidden:YES animated:animated];
     }else {
         [navigationController setNavigationBarHidden:NO animated:animated];
