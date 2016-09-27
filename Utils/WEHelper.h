@@ -16,7 +16,7 @@
 /// @param data 网络图片或本地图片网络请求返回来的数据
 ///
 /// @return 图片类型
-- (NSString *)contentTypeForImageData:(NSData *)data;
++ (NSString *)contentTypeForImageData:(NSData *)data;
 
 @end
 
