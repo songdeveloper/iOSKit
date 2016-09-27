@@ -11,6 +11,13 @@
 // 123,000
 + (NSString *)commaNumberStringWithNumber:(NSInteger)number;
 
+/// 检测图片类型的方法，是jpeg还是png，或者是gif，webp
+///
+/// @param data 网络图片或本地图片网络请求返回来的数据
+///
+/// @return 图片类型
+- (NSString *)contentTypeForImageData:(NSData *)data;
+
 @end
 
 
