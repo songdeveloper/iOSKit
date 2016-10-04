@@ -53,9 +53,12 @@
 
 #define AppThemeColor RGBCOLOR(79, 145, 225)
 
+#define WeakSelf(VC)        __weak VC *weakSelf = self
+
+
 // ---------------------------------------------------------------------------------------
 
-// GCD线程相关的宏
+// GCD线程相关的宏，这些宏在SDWebImage中都有，可以不必反复设置，当导入SDWebImage时，可以考虑去掉下面的宏
 #define dispatch_main_sync_safe(block)\
 if ([NSThread isMainThread]) {\
 block();\
