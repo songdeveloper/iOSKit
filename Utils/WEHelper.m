@@ -2,6 +2,7 @@
 
 
 #import "WEHelper.h"
+
 @implementation WEHelper
 
  //计算字符串大小
@@ -34,7 +35,7 @@
     return resultStr;
 }
 # pragma mark - 根据网络返回的数据检测图片类型的方法，比较严谨
-- (NSString *)contentTypeForImageData:(NSData *)data {
++ (NSString *)contentTypeForImageData:(NSData *)data {
     uint8_t c;
     [data getBytes:&c length:1];
     switch (c) {
@@ -59,7 +60,20 @@
     return nil;
 }
 @end
+#pragma mark - 字符串非空判断
 
+@implementation NSString(isValueable)
+
++ (BOOL)isValueableString:(NSString *)string {
+    
+    BOOL isValueableString = NO;
+    if (string != nil && (NSNull *)string != [NSNull null] && ![@"" isEqualToString:string]) {
+        isValueableString = YES;
+    }
+    return isValueableString;
+}
+
+@end
 #pragma mark - 字符串时间格式转换
 
 @implementation NSString (WETimeString)

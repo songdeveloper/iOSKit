@@ -11,7 +11,7 @@
 // 123,000
 + (NSString *)commaNumberStringWithNumber:(NSInteger)number;
 
-/// 检测图片类型的方法，是jpeg还是png，或者是gif，webp
+/// 检测图片类型的方法，是jpeg还是png，或者是gif，webp，这个方法SDWebImage中也有NSData的分类
 ///
 /// @param data 网络图片或本地图片网络请求返回来的数据
 ///
@@ -20,7 +20,13 @@
 
 @end
 
+#pragma mark - 字符串非空判断
 
+@interface NSString (isValueable)
+
++ (BOOL)isValueableString:(NSString *)string;
+
+@end
 #pragma mark - 字符串时间格式转换
 
 @interface NSString (WETimeString)
