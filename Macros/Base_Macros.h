@@ -12,7 +12,11 @@
 #import "WEHelper.h"
 //#import "HYBNetworking.h"
 #import "Network_Interface.h"
-//#import "YYModel.h"
+#if __has_include(<YYModel/YYModel.h>)
+#import <YYModel/YYModel.h>
+#else 
+#import "YYModel.h"
+#endif
 
 
 // 打印相关的宏-----------------------------------------------------------------
@@ -36,6 +40,13 @@
 #define DLog( s, ... )
 
 #endif
+
+# pragma mark - NSUserDefaults本地保存 宏定义使用
+#define Get(a) [[NSUserDefaults standardUserDefaults] objectForKey:a]
+#define Save(a, b)                                                \
+[[NSUserDefaults standardUserDefaults] setObject:a forKey:b]; \
+[[NSUserDefaults standardUserDefaults] synchronize]
+
 // -----------------------------------------------------------------------------------
 // 获取设备的frame值
 #define ScreenFrame [UIScreen mainScreen].bounds
